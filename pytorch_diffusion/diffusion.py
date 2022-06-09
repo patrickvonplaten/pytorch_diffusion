@@ -126,7 +126,7 @@ class Diffusion(object):
         self.sqrt_one_minus_alphas = np.sqrt(1. - alphas)
 
         if self.model_var_type == "fixedlarge":
-            self.logvar = np.log(np.append(posterior_variance[1], betas[1:]))
+            self.logvar = np.log(np.append(posterior_variance[1], posterior_variance[1:]))
         elif self.model_var_type == 'fixedsmall':
             self.logvar = np.log(np.maximum(posterior_variance, 1e-20))
 
